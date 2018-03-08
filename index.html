@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<title>
+			TM CALCULATOR
+		</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+       
+		<script>
+			function calc()
+			{
+				
+				if(document.getElementById("tm").value=="Ace")
+					version(1000,4000,65,260);
+				if(document.getElementById("tm").value=="Sabo")
+					version(1000,4000,10,500);
+				if(document.getElementById("tm").value=="Zoro & Sanji")
+					version(1000,4000,65,260);
+			}
+			/*
+				First parameter is the starting value of the preboss, the second the starting value
+				of the boss, the third the increment of point of the preboss in every map 
+				and the last is the increment of point of the boss in every map
+			*/
+			function version(x, y, low, high) 
+			{
+				
+				var a, b , c, d, boss, objective, i, NP=0, NR=0;
+				a=document.getElementById("a").value;
+				b=document.getElementById("b").value;
+				c=document.getElementById("c").value;
+				d=document.getElementById("d").value;
+				boss=document.getElementById("boss").value;
+				/*
+				
+					Distinction of the calculating of the number of point or the number of runs based on the choice of the user
+				
+				*/
+				
+				
+				if(document.getElementById("ru").checked)
+				{
+					objective=document.getElementById("points").value;
+					
+					for(;NP<objective;y=y+high)
+					{
+						
+						NP=NP+a*x+b*x+c*x+d*x+boss*y;
+						NR++;
+						x=x+low;
+					}
+					document.getElementById("number").value=NR;
+				}
+				else
+				{
+					objective=document.getElementById("number").value;
+					for(i=0;i<objective;i++)
+					{
+						
+						NP=NP+a*x+b*x+c*x+d*x+boss*y;
+						NR++;
+						x=x+low;
+						y=y+high
+					}
+					document.getElementById("points").value=NP;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p style="font-size:30">
+			OPTC TM CALCULATOR
+		<p>
+			<img src="media/optclogo.png" height=200px></img>
+		<p>
+			<input type="radio" name="version" id="glo" />GLOBAL
+			<input type="radio" name="version" id="jap" checked />JAPAN 
+		</p>
+		<p>
+			Select your map:
+            <select id='tm'>
+				<option>Zoro & Sanji</option>
+				<option>Sabo</option>
+				<option>Ace</option>
+			</select>
+			</p>
+		<p>
+			First pre-boss: <input type='number' value=1 id='a' class="input">
+		</p>
+		<p>
+			Second pre-boss: <input type='number' value=1 id='b' class="input">
+		</p>
+		<p>
+			Third pre-boss: <input type='number' value=1 id='c' class="input">
+		</p>
+		<p>
+			Fourth pre-boss: <input type='number' value=1 id='d' class="input">
+		</p>
+		<p>
+			Boss: <input type='number' value=1 id='boss' class="input">
+		</p>
+		<p>
+			Number of points: <input type='number' id='points' class="input" value=1000000 style="width:110px"> Number of runs: <input class="input" type='number' id='number'>
+		</p>
+		<p>
+		<input type="radio" name="choice" id="ru" checked/>Calculate the number of runs required to reach the selected number of points
+		</p>
+		<p>
+		<input type="radio" name="choice" id="po"  />Calculate the amount of point earned with the selected number of run
+		</p>
+		<input type='button' class='btn' value='CALCULATE' onclick='calc();'>
+        </br>
+        <img src="media/jua.png" height=250px></img>
+        
+        <p>
+        	Follow us!
+        </p>
+        <div class="ttt">
+        	<a href="https://twitter.com/japanuberalles"><img src="media/twitter2.png" height=30px></img></a>
+        	<a href="https://www.youtube.com/channel/UCD3LfvgVs-7nU7AuvPO8TNQ"><img src="media/youtube.png" href="https://www.youtube.com/channel/UCD3LfvgVs-7nU7AuvPO8TNQ" height=30px></img></a>
+		<div>
+	</body>
+</html>
