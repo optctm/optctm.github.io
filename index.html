@@ -7,6 +7,35 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
        
 		<script>
+			function cliccato()
+			{
+				if(document.getElementById("glo").checked)
+				{
+					opzione= document.createElement("option");
+   					opzione.setAttribute('value', "Mihawk");
+   					opzione.innerHTML = "Mihawk"
+   					document.getElementById("tm").appendChild(opzione);
+					document.getElementById("global").style.display='block';
+				}
+				else
+				{
+					opzione= document.createElement("option");
+   					opzione.setAttribute('value', "Sanji & Zoro");
+   					opzione.innerHTML = "Sanji & Zoro"
+   					document.getElementById("tm").appendChild(opzione);
+
+					opzione= document.createElement("option");
+   					opzione.setAttribute('value', "Sabo");
+   					opzione.innerHTML = "Sabo"
+   					document.getElementById("tm").appendChild(opzione);
+
+					opzione= document.createElement("option");
+   					opzione.setAttribute('value', "Ace");
+   					opzione.innerHTML = "Ace"
+   					document.getElementById("tm").appendChild(opzione);
+					document.getElementById("global").style.display='none';
+				}
+			}
 			function calc()
 			{
 				
@@ -16,6 +45,8 @@
 					version(1000,4000,10,500);
 				if(document.getElementById("tm").value=="Zoro & Sanji")
 					version(1525,4750,91.5,285);
+				if(document.getElementById("tm").value=="Mihawk")
+					version(1000,5000,65,260);
 			}
 			/*
 				First parameter is the starting value of the preboss, the second the starting value
@@ -74,14 +105,14 @@
 		  });
 		</script>
 	</head>
-	<body>
+	<body onload="cliccato();">
 		<p style="font-size:30">
 			OPTC TM CALCULATOR
 		<p>
 			<img src="media/optc.png" height=200px></img>
 		<p>
-			<input type="radio" name="version" id="glo" />GLOBAL
-			<input type="radio" name="version" id="jap" checked />JAPAN 
+			<input type="radio" onclick="cliccato();" name="version" id="glo" />GLOBAL
+			<input type="radio" onclick="cliccato();" name="version" id="jap" checked />JAPAN 
 		</p>
 		<p>
 			Select your map:
@@ -91,7 +122,28 @@
 				<option>Ace</option>
 			</select>
 			</p>
-		<p>Insert your multipliers</p>
+			</br>
+		<div style="display:none" id="global">
+			<p>
+				Multipliers of the map's bosses (leave 0 if you don't fight)
+			<p>
+				First pre-boss: <input type='number' value= id='w' class="input">
+			</p>
+			<p>
+				Second pre-boss: <input type='number' value=0 id='x' class="input">
+			</p>
+			<p>
+				Third pre-boss: <input type='number' value=0 id='y' class="input">
+			</p>
+			<p>
+				Fourth pre-boss: <input type='number' value=0 id='z' class="input">
+			</p>
+		
+		</div>
+		</br>
+		<p>
+			Multipliers of final bosses
+		</p>
 		<p>
 			First pre-boss: <input type='number' value=1 id='a' class="input">
 		</p>
