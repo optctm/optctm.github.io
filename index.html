@@ -46,20 +46,20 @@
 			{
 				
 				if(document.getElementById("tm").value=="Ace")
-					version(1000,4000,65,260);
+					version(1000,4000,65,260,0,0);
 				if(document.getElementById("tm").value=="Sabo")
-					version(1000,4000,10,500);
+					version(1000,4000,10,500,0,0);
 				if(document.getElementById("tm").value=="Zoro & Sanji")
-					version(1525,4750,91.5,285);
+					version(1525,4750,91.5,285,0,0);
 				if(document.getElementById("tm").value=="Mihawk")
-					version(1000,5000,65,260);
+					version(1000,5000,65,260,200,10);
 			}
 			/*
 				First parameter is the starting value of the preboss, the second the starting value
 				of the boss, the third the increment of point of the preboss in every map 
 				and the last is the increment of point of the boss in every map
 			*/
-			function version(x, y, low, high) 
+			function version(x, y, low, high, pres, prei) 
 			{
 				
 				var a, b , c, d, boss, objective, i, NP=0, NR=0;
@@ -67,6 +67,10 @@
 				b=document.getElementById("b").value;
 				c=document.getElementById("c").value;
 				d=document.getElementById("d").value;
+				e=document.getElementById("w").value;
+				f=document.getElementById("x").value;
+				g=document.getElementById("y").value;
+				h=document.getElementById("z").value;
 				boss=document.getElementById("boss").value;
 				/*
 				
@@ -82,9 +86,10 @@
 					for(;NP<objective;y=y+high)
 					{
 						
-						NP=NP+a*x+b*x+c*x+d*x+boss*y;
+						NP=NP+a*x+b*x+c*x+d*x+boss*y+e*pres+f*pres+g*pres+h*pres;
 						NR++;
 						x=x+low;
+						pres=pres=prei;
 					}
 					document.getElementById("number").value=NR;
 				}
@@ -123,17 +128,14 @@
 		<p>
 			Select your map:
             <select id='tm'>
-				<option>Zoro & Sanji</option>
-				<option>Sabo</option>
-				<option>Ace</option>
 			</select>
 			</p>
-			</br>
+		</br>
 		<div style="display:none" id="global">
 			<p>
-				Multipliers of the map's bosses (leave 0 if you don't fight)
+				Multipliers of the map's bosses (leave 0 if you don't fight on the map)
 			<p>
-				First pre-boss: <input type='number' value= id='w' class="input">
+				First pre-boss: <input type='number' value=0 id='w' class="input">
 			</p>
 			<p>
 				Second pre-boss: <input type='number' value=0 id='x' class="input">
@@ -146,7 +148,6 @@
 			</p>
 		
 		</div>
-		</br>
 		<p>
 			Multipliers of final bosses
 		</p>
