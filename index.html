@@ -32,6 +32,12 @@
 				else
 				{
 					opzione= document.createElement("option");
+   					opzione.setAttribute('value', "Kizaru");
+   					opzione.innerHTML = "Kizaru"
+   					document.getElementById("tm").appendChild(opzione);
+					document.getElementById("global").style.display='none';
+					
+					opzione= document.createElement("option");
    					opzione.setAttribute('value', "Sanji & Zoro");
    					opzione.innerHTML = "Sanji & Zoro"
    					document.getElementById("tm").appendChild(opzione);
@@ -61,6 +67,8 @@
 					version(1000,5000,200,1000,500,100);
 				if(document.getElementById("tm").value=="Whitebeard")
 					version(1000,5000,200,1000,500,100);
+				if(document.getElementById("tm").value=="Kizaru")
+					version(1200,4550,60,227,0,0);
 			}
 			/*
 				First parameter is the starting value of the preboss, the second the starting value
