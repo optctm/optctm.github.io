@@ -16,10 +16,10 @@
 					document.getElementById("tm").remove(i);
 				}
 				if(document.getElementById("glo").checked)
-				{
+				{	
 					opzione= document.createElement("option");
-   					opzione.setAttribute('value', "Mihawk");
-   					opzione.innerHTML = "Mihawk"
+   					opzione.setAttribute('value', "Cavendish");
+   					opzione.innerHTML = "Cavendish"
    					document.getElementById("tm").appendChild(opzione);
 					document.getElementById("global").style.display='block';
 					
@@ -28,6 +28,14 @@
    					opzione.innerHTML = "Whitebeard"
    					document.getElementById("tm").appendChild(opzione);
 					document.getElementById("global").style.display='block';
+					
+					opzione= document.createElement("option");
+   					opzione.setAttribute('value', "Mihawk");
+   					opzione.innerHTML = "Mihawk"
+   					document.getElementById("tm").appendChild(opzione);
+					document.getElementById("global").style.display='block';
+					
+					
 				}
 				else
 				{
@@ -69,6 +77,8 @@
 					version(1000,5000,200,1000,500,100);
 				if(document.getElementById("tm").value=="Kizaru")
 					version(1200,4550,60,227,0,0);
+				if(document.getElementById("tm").value=="Cavendish")
+					version(1000,5000,200,1000,500,100);
 			}
 			/*
 				First parameter is the starting value of the preboss, the second the starting value
